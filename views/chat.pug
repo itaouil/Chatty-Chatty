@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .chat
+    
+    .chat-title
+      h1 Chatty-Chatty
+      h2 Get Comfortable
+      figure.avatar
+        img(src='/img/profile.jpg')
+    
+    .messages
+      .messages-content
+    
+    .message-box
+      textarea.message-input(type='text', placeholder='Type message ...')
+      button.message-submit(type='submit') Send
+      
+  script(src='/js/jquery-3.2.1.min.js')
+  script(src='/js/jquery.mCustomScrollbar.concat.min.js')
+  script(src='/js/main.js')
+
+    
