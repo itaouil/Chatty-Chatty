@@ -1,14 +1,15 @@
 // Modules
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var nodemon     = require('gulp-nodemon');
-var browserSync = require('browser-sync');
+var gulp         = require('gulp');
+var sass         = require('gulp-sass');
+var nodemon      = require('gulp-nodemon');
+var browserSync  = require('browser-sync');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Live reloading
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
     proxy: "http://localhost:3000/",
-    files: ["public/**/*.*"],
+    files: ["public/*/*.*"],
     browser: "google chrome",
     port: 7000
   });
@@ -42,6 +43,10 @@ gulp.task('watch', ['browser-sync', 'sass'], function() {
 gulp.task('sass', function(){
   return gulp.src('public/sass/style.sass')
     .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('public/css'))
     .pipe(browserSync.reload({
       stream: true
