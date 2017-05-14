@@ -8,7 +8,7 @@
 
 html,
 body {
-  height: 100vh; }
+  height: 100%; }
 
 body {
   background: linear-gradient(135deg, #044f48, #2a7561);
@@ -37,7 +37,7 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 80%;
   height: 100vh;
   max-height: 500px;
   z-index: 2;
@@ -252,8 +252,10 @@ body {
     margin: 0;
     padding-right: 20px;
     width: 265px; }
-  .message-box textarea:focus:-webkit-placeholder {
-    color: transparent; }
+  .message-box textarea {
+    cursor: pointer; }
+    .message-box textarea:focus:-webkit-placeholder {
+      color: transparent; }
   .message-box .message-submit {
     position: absolute;
     z-index: 1;
@@ -271,7 +273,8 @@ body {
     -webkit-transition: background .2s ease;
     transition: background .2s ease; }
     .message-box .message-submit:hover {
-      background: #1D7745; }
+      background: #1D7745;
+      cursor: pointer; }
 
 /* Custom Scrollbar */
 .mCSB_scrollTools {

@@ -25,7 +25,7 @@
 
 html,
 body
-  height: 100vh
+  height: 100%
 
 body
   background: linear-gradient(135deg, #044f48, #2a7561)
@@ -48,7 +48,7 @@ body
 /* Chat */
 .chat
   +center
-  width: 100%
+  width: 80%
   height: 100vh
   max-height: 500px
   z-index: 2
@@ -224,7 +224,10 @@ body
     padding-right: 20px
     width: 265px
 
-  textarea:focus:-webkit-placeholder
+  textarea
+    cursor: pointer
+
+    &:focus:-webkit-placeholder
       color: transparent
 
   & .message-submit
@@ -245,6 +248,7 @@ body
 
     &:hover
       background: #1D7745
+      cursor: pointer
 
 /* Custom Scrollbar */
 .mCSB_scrollTools
