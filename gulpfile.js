@@ -34,14 +34,14 @@ gulp.task('nodemon', function(cb) {
 
 // Compile SASS files on change
 gulp.task('watch', ['browser-sync', 'sass'], function() {
-  gulp.watch('public/sass/style.sass', ['sass']);
+  gulp.watch('public/sass/*.sass', ['sass']);
   gulp.watch('views/*.pug', browserSync.reload);
   gulp.watch('public/js/*.js', browserSync.reload);
 });
 
 // Preprocessing SASS files
 gulp.task('sass', function(){
-  return gulp.src('public/sass/style.sass')
+  return gulp.src('public/sass/*.sass')
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],

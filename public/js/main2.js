@@ -2,8 +2,8 @@
 var socket = io();
 
 // Socket.io incoming new lads message
-socket.on('message', function(msg){
-  ladsMessage(msg);
+socket.on('message', function(data){
+  ladsMessage(data);
 });
 
 // Messages container
@@ -58,12 +58,12 @@ function insertMessage() {
   updateScrollbar();
 
   // Send message to server to be broadcasted
-  socket.emit('message', msg);
+  socket.emit('message', {name: name, msg: msg});
   console.log('Client sent message', msg);
 }
 
-function ladsMessage(msg) {
-  $('<div class="message new">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+function ladsMessage(data) {
+  $('<div style="display: inline-block; position: relative;">' + data.name +'<div class="message new">' + data.msg + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
   updateScrollbar();
 }

@@ -32,9 +32,8 @@ var server = http.createServer(app);
  io.on('connection', function(socket){
 
    // Receives new chat message/s
-   socket.on('message', function(msg){
-     console.log('Server received message', msg);
-     socket.broadcast.emit('message', msg);
+   socket.on('message', function(data){
+     socket.broadcast.emit('message', {name: data.name, msg: data.msg});
    });
 
  });
